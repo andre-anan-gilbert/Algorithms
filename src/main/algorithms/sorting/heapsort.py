@@ -16,6 +16,7 @@ class Heapsort:
         for i in range(max(0, (size // 2) - 1), -1, -1):
             self._sink(array, size, i)
 
+        # Sorting
         for i in range(size - 1, 0, -1):
             self._swap(array, 0, i)
             self._sink(array, i, 0)
