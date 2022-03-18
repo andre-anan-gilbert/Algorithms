@@ -45,6 +45,7 @@ class Heapsort:
     def _swap(self, array: list[int], i: int, j: int) -> None:
         array[i], array[j] = array[j], array[i]
 
+
 def main() -> None:
     sorter = Heapsort()
     array = [10, 4, 6, 8, 13, 2, 3]
