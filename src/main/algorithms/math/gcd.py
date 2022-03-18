@@ -1,7 +1,4 @@
-"""An implementation of finding the greatest common divisor of two numbers.
-
-Time Complexity: ~O(log(a + b)).
-"""
+"""An implementation of finding the greatest common divisor of two numbers - ~O(log(a + b))."""
 
 
 class GCD:
@@ -11,17 +8,18 @@ class GCD:
         """Computes the greatest common divisor of a & b."""
         return abs(a) if not b else self.gcd(b, a % b)
 
-    def main(self) -> None:
-        print(self.gcd(5, 0))
-        print(self.gcd(0, 5))
-        print(self.gcd(-5, 0))
-        print(self.gcd(0, -5))
+def main() -> None:
+    gcd = GCD()
+    print(gcd.gcd(5, 0))
+    print(gcd.gcd(0, 5))
+    print(gcd.gcd(-5, 0))
+    print(gcd.gcd(0, -5))
 
-        print(self.gcd(12, 18))
-        print(self.gcd(-12, 18))
-        print(self.gcd(12, -18))
-        print(self.gcd(-12, -18))
+    print(gcd.gcd(12, 18))
+    print(gcd.gcd(-12, 18))
+    print(gcd.gcd(12, -18))
+    print(gcd.gcd(-12, -18))
 
 
 if __name__ == '__main__':
-    GCD().main()
+    main()
