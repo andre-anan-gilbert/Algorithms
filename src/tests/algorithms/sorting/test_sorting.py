@@ -4,17 +4,22 @@ import random
 import unittest
 from enum import Enum, auto
 from main.algorithms.sorting.bubble_sort import BubbleSort
+from main.algorithms.sorting.heapsort import Heapsort
 
 
 class SortingAlgorithm(Enum):
     BUBBLE_SORT = auto()
+    HEAP_SORT = auto()
 
 
 class TestSorting(unittest.TestCase):
     """Class that tests sorting algorithms."""
 
     def setUp(self) -> None:
-        self._algorithms = {SortingAlgorithm.BUBBLE_SORT: BubbleSort}
+        self._algorithms = {
+            SortingAlgorithm.BUBBLE_SORT: BubbleSort,
+            SortingAlgorithm.HEAP_SORT: Heapsort,
+        }
 
     def test_small_positive_integers(self) -> None:
         for size in range(0, 100):
@@ -24,7 +29,7 @@ class TestSorting(unittest.TestCase):
                 cpy = copy.deepcopy(values)
 
                 values.sort()
-                sorter.sort_array(cpy)
+                sorter.sort(cpy)
 
                 self.assertEqual(values, cpy)
 
@@ -36,7 +41,7 @@ class TestSorting(unittest.TestCase):
                 cpy = copy.deepcopy(values)
 
                 values.sort()
-                sorter.sort_array(cpy)
+                sorter.sort(cpy)
 
                 self.assertEqual(values, cpy)
 
