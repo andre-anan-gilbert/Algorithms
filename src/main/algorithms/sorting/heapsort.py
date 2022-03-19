@@ -5,11 +5,11 @@ class Heapsort:
     """Class that sorts arrays using heapsort."""
 
     def sort(self, array: list[int]) -> None:
+        if len(array) <= 1: return
         self._heapsort(array)
 
     def _heapsort(self, array: list[int]) -> None:
         """Sorts the array using heapsort."""
-        if not array: return
         size = len(array)
 
         # Heapify converts array into binary heap - O(n)
@@ -49,7 +49,7 @@ class Heapsort:
 
 def main() -> None:
     sorter = Heapsort()
-    array = [10, 4, 6, 8, 13, 2, 3]
+    array = [10, 4, 6, 4, 8, -13, 2, 3]
     sorter.sort(array)
     print(array)
 

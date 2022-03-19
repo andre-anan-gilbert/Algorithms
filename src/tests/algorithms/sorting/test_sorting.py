@@ -5,11 +5,13 @@ import unittest
 from enum import Enum, auto
 from main.algorithms.sorting.bubble_sort import BubbleSort
 from main.algorithms.sorting.heapsort import Heapsort
+from main.algorithms.sorting.quick_sort import QuickSort
 
 
 class SortingAlgorithm(Enum):
     BUBBLE_SORT = auto()
     HEAP_SORT = auto()
+    QUICK_SORT = auto()
 
 
 class TestSorting(unittest.TestCase):
@@ -19,6 +21,7 @@ class TestSorting(unittest.TestCase):
         self._algorithms = {
             SortingAlgorithm.BUBBLE_SORT: BubbleSort,
             SortingAlgorithm.HEAP_SORT: Heapsort,
+            SortingAlgorithm.QUICK_SORT: QuickSort,
         }
 
     def test_small_positive_integers(self) -> None:
