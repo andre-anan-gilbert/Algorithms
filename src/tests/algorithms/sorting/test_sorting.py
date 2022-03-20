@@ -18,6 +18,7 @@ class TestSorting(unittest.TestCase):
     """Class that tests sorting algorithms."""
 
     def setUp(self) -> None:
+        self._loops = 100
         self._algorithms = {
             SortingAlgorithm.BUBBLE_SORT: BubbleSort,
             SortingAlgorithm.HEAP_SORT: Heapsort,
@@ -25,7 +26,7 @@ class TestSorting(unittest.TestCase):
         }
 
     def test_small_positive_integers(self) -> None:
-        for size in range(0, 100):
+        for size in range(0, self._loops):
             for algorithm in self._algorithms:
                 sorter = self._algorithms.get(algorithm)()
                 values = self._generate_random_list(size, 0, 51)
@@ -37,7 +38,7 @@ class TestSorting(unittest.TestCase):
                 self.assertEqual(values, cpy)
 
     def test_small_negative_integers(self) -> None:
-        for size in range(0, 100):
+        for size in range(0, self._loops):
             for algorithm in self._algorithms:
                 sorter = self._algorithms.get(algorithm)()
                 values = self._generate_random_list(size, -50, 51)
