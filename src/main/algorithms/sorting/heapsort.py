@@ -9,7 +9,6 @@ class Heapsort:
         self._heapsort(array)
 
     def _heapsort(self, array: list[int]) -> None:
-        """Sorts the array using heapsort."""
         size = len(array)
 
         # Heapify converts array into binary heap - O(n)

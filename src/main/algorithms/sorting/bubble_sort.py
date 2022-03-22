@@ -9,7 +9,6 @@ class BubbleSort:
         self._bubble_sort(array)
 
     def _bubble_sort(self, array: list[int]) -> None:
-        """Sorts the array using bubble sort."""
         is_sorted = False
         while not is_sorted:
             is_sorted = True

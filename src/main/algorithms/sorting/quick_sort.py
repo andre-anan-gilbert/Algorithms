@@ -9,7 +9,6 @@ class QuickSort:
         self._quick_sort(array, 0, len(array) - 1)
 
     def _quick_sort(self, array: list[int], low: int, high: int) -> None:
-        """Sorts the array using quick sort."""
         if low < high:
             pivot_index = self._partition(array, low, high)
             self._quick_sort(array, low, pivot_index - 1)
