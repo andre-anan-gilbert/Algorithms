@@ -8,6 +8,7 @@ from main.algorithms.sorting.heapsort import Heapsort
 from main.algorithms.sorting.quick_sort import QuickSort
 from main.algorithms.sorting.insertion_sort import InsertionSort
 from main.algorithms.sorting.selection_sort import SelectionSort
+from main.algorithms.sorting.merge_sort import MergeSort
 
 
 class SortingAlgorithm(Enum):
@@ -16,6 +17,7 @@ class SortingAlgorithm(Enum):
     QUICK_SORT = auto()
     INSERTION_SORT = auto()
     SELECTION_SORT = auto()
+    MERGE_SORT = auto()
 
 
 class TestSorting(unittest.TestCase):
@@ -29,6 +31,7 @@ class TestSorting(unittest.TestCase):
             SortingAlgorithm.QUICK_SORT: QuickSort,
             SortingAlgorithm.INSERTION_SORT: InsertionSort,
             SortingAlgorithm.SELECTION_SORT: SelectionSort,
+            SortingAlgorithm.MERGE_SORT: MergeSort,
         }
 
     def test_small_positive_integers(self) -> None:
