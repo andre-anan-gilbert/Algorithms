@@ -5,7 +5,7 @@ class QuickSort:
     """Class that sorts arrays using quick sort."""
 
     def sort(self, array: list[int]) -> None:
-        if len(array) <= 1: return
+        if not array: return
         self._quick_sort(array, 0, len(array) - 1)
 
     def _quick_sort(self, array: list[int], low: int, high: int) -> None:

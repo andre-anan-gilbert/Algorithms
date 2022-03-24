@@ -5,7 +5,7 @@ class BucketSort:
     """Class that sorts arrays using bucket sort."""
 
     def sort(self, array: list[int]) -> None:
-        if len(array) <= 1: return
+        if not array: return
 
         min_value = min(array)
         max_value = max(array)

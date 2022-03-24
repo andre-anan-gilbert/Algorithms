@@ -5,7 +5,7 @@ class Heapsort:
     """Class that sorts arrays using heapsort."""
 
     def sort(self, array: list[int]) -> None:
-        if len(array) <= 1: return
+        if not array: return
         self._heapsort(array)
 
     def _heapsort(self, array: list[int]) -> None:

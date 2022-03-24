@@ -5,7 +5,7 @@ class InsertionSort:
     """Class that sorts arrays using insertion sort."""
 
     def sort(self, array: list[int]) -> None:
-        if len(array) <= 1: return
+        if not array: return
         self._insertion_sort(array)
 
     def _insertion_sort(self, array: list[int]) -> None:

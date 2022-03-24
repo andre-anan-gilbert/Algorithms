@@ -5,7 +5,7 @@ class SelectionSort:
     """Class that sorts array using selection sort."""
 
     def sort(self, array: list[int]) -> None:
-        if len(array) <= 1: return
+        if not array: return
         self._selection_sort(array)
 
     def _selection_sort(self, array: list[int]) -> None:

@@ -5,7 +5,7 @@ class MergeSort:
     """Class that sorts arrays using merge sort."""
 
     def sort(self, array: list[int]) -> None:
-        if len(array) <= 1: return
+        if not array: return
         self._merge_sort(array)
 
     def _merge_sort(self, array: list[int]) -> None:

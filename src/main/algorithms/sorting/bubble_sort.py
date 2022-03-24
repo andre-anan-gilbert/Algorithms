@@ -5,7 +5,7 @@ class BubbleSort:
     """Class that sorts arrays using bubble sort."""
 
     def sort(self, array: list[int]) -> None:
-        if len(array) <= 1: return
+        if not array: return
         self._bubble_sort(array)
 
     def _bubble_sort(self, array: list[int]) -> None:
