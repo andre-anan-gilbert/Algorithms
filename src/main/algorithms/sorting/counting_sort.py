@@ -9,6 +9,8 @@ class CountingSort:
 
         min_value = min(array)
         max_value = max(array)
+        if min_value == max_value: return
+
         self._counting_sort(array, min_value, max_value)
 
     def _counting_sort(self, array: list[int], min_value: int, max_value: int) -> None:
