@@ -8,17 +8,18 @@ class GCD:
         """Computes the greatest common divisor of a & b."""
         return abs(a) if not b else self.gcd(b, a % b)
 
+
 def main() -> None:
     gcd = GCD()
-    print(gcd.gcd(5, 0))
-    print(gcd.gcd(0, 5))
-    print(gcd.gcd(-5, 0))
-    print(gcd.gcd(0, -5))
+    print(gcd.gcd(5, 0))  # 5
+    print(gcd.gcd(0, 5))  # 5
+    print(gcd.gcd(-5, 0))  # 5
+    print(gcd.gcd(0, -5))  # 5
 
-    print(gcd.gcd(12, 18))
-    print(gcd.gcd(-12, 18))
-    print(gcd.gcd(12, -18))
-    print(gcd.gcd(-12, -18))
+    print(gcd.gcd(12, 18))  # 6
+    print(gcd.gcd(-12, 18))  # 6
+    print(gcd.gcd(12, -18))  # 6
+    print(gcd.gcd(-12, -18))  # 6
 
 
 if __name__ == '__main__':

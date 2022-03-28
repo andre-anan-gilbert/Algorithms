@@ -16,10 +16,10 @@ class LCM:
 
 def main() -> None:
     lcm = LCM()
-    print(lcm.lcm(12, 18))
-    print(lcm.lcm(-12, 18))
-    print(lcm.lcm(12, -18))
-    print(lcm.lcm(-12, -18))
+    print(lcm.lcm(12, 18))  # 36
+    print(lcm.lcm(-12, 18))  # 36
+    print(lcm.lcm(12, -18))  # 36
+    print(lcm.lcm(-12, -18))  # 36
 
 
 if __name__ == '__main__':

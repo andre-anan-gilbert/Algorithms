@@ -2,6 +2,10 @@
 
 ## Data Structures
 
+## Search
+
+## Sorting
+
 ## License
 
 This repository is released under the [MIT license](https://opensource.org/licenses/MIT).
