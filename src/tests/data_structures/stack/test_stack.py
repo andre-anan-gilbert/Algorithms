@@ -16,13 +16,11 @@ class TestStack(unittest.TestCase):
 
     def test_pop_on_empty(self) -> None:
         for stack in self._stacks:
-            with self.assertRaises(Exception):
-                stack.pop()
+            self.assertRaises(Exception, stack.pop)
 
     def test_peek_on_empty(self) -> None:
         for stack in self._stacks:
-            with self.assertRaises(Exception):
-                stack.peek()
+            self.assertRaises(Exception, stack.pop)
 
     def test_push(self) -> None:
         for stack in self._stacks:

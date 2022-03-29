@@ -1,10 +1,11 @@
 """An implementation of a stack using an array."""
+from .stack import Stack
 from typing import Generic, TypeVar
 
 T = TypeVar('T')
 
 
-class ArrayStack:
+class ArrayStack(Stack):
     """Class representing a stack.
 
     Attributes:
@@ -38,6 +39,7 @@ class ArrayStack:
 
     def pop(self) -> Generic[T]:
         """Removes an element from the stack."""
+        if self.is_empty(): raise RuntimeError('Empty stack.')
         return self._stack.pop()
 
     def peek(self) -> Generic[T]:
