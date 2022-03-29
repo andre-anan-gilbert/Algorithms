@@ -1,11 +1,10 @@
 """An implementation of a stack using an array."""
-from .stack import Stack
 from typing import Generic, TypeVar
 
 T = TypeVar('T')
 
 
-class ArrayStack(Stack):
+class ArrayStack:
     """Class representing a stack.
 
     Attributes:
