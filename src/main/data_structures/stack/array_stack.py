@@ -12,7 +12,6 @@ class ArrayStack(Generic[T]):
     """
 
     def __init__(self) -> None:
-
         self._stack = []
 
     def size(self) -> int:
