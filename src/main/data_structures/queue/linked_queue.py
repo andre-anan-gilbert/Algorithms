@@ -52,6 +52,7 @@ class LinkedQueue(Generic[T]):
     def __contains__(self, elem: T) -> bool:
         return elem in self._queue
 
+
 class DoublyLinkedList(Generic[T]):
     """Class that represents a doubly linked list.
 

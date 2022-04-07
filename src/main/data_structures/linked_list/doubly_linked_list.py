@@ -256,3 +256,26 @@ class DoublyLinkedList(Generic[T]):
 
         linked_list += ']'
         return linked_list
+
+
+def main() -> None:
+    linked_list = DoublyLinkedList()
+    print(linked_list.is_empty())
+    linked_list.add(1)
+    linked_list.add(2)
+    linked_list.add(3)
+    print(linked_list.is_empty())
+    print(linked_list)
+    print(linked_list.size())
+    print(linked_list.peek_first())
+    print(linked_list.peek_last())
+    print(linked_list.contains(2))
+    linked_list.remove(2)
+    linked_list.remove_first()
+    linked_list.remove_last()
+    linked_list.add(1)
+    print(linked_list)
+
+
+if __name__ == '__main__':
+    main()
