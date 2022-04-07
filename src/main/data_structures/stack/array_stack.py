@@ -1,10 +1,10 @@
 """An implementation of a stack using an array."""
-from typing import Generic, TypeVar
+from typing import Generic, Iterator, TypeVar
 
 T = TypeVar('T')
 
 
-class ArrayStack:
+class ArrayStack(Generic[T]):
     """Class representing a stack.
 
     Attributes:
@@ -12,17 +12,8 @@ class ArrayStack:
     """
 
     def __init__(self) -> None:
-        """Inits the stack."""
+
         self._stack = []
-
-    def __str__(self) -> str:
-        return str(self._stack)
-
-    def __bool__(self) -> bool:
-        return bool(self._stack)
-
-    def __contains__(self, elem: Generic[T]) -> bool:
-        return elem in self._stack
 
     def size(self) -> int:
         """Returns the size of the stack."""
@@ -32,19 +23,35 @@ class ArrayStack:
         """Checks if the stack is empty."""
         return not self._stack
 
-    def push(self, elem: Generic[T]) -> None:
+    def push(self, elem: T) -> None:
         """Adds an element to the stack."""
         self._stack.append(elem)
 
-    def pop(self) -> Generic[T]:
+    def pop(self) -> T:
         """Removes an element from the stack."""
         if self.is_empty(): raise RuntimeError('Empty stack.')
         return self._stack.pop()
 
-    def peek(self) -> Generic[T]:
+    def peek(self) -> T:
         """Returns the top element."""
         if self.is_empty(): raise RuntimeError('Empty stack.')
         return self._stack[-1]
+
+    def __iter__(self) -> Iterator:
+        self._iter = iter(self._stack)
+        return self
+
+    def __next__(self) -> T:
+        return next(self._iter)
+
+    def __str__(self) -> str:
+        return str(self._stack)
+
+    def __bool__(self) -> bool:
+        return bool(self._stack)
+
+    def __contains__(self, elem: T) -> bool:
+        return elem in self._stack
 
 
 def main() -> None:
