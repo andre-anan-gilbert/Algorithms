@@ -1,13 +1,14 @@
 """Tests the queue implementations."""
 import unittest
 from main.data_structures.queue.array_queue import ArrayQueue
+from main.data_structures.queue.linked_queue import LinkedQueue
 
 
 class TestQueue(unittest.TestCase):
     """Class that tests the queue implementations."""
 
     def setUp(self) -> None:
-        self._queues = [ArrayQueue()]
+        self._queues = [ArrayQueue(), LinkedQueue()]
 
     def test_empty_queue(self) -> None:
         for queue in self._queues:

@@ -1,13 +1,14 @@
 """Tests the stack implementations."""
 import unittest
 from main.data_structures.stack.array_stack import ArrayStack
+from main.data_structures.stack.linked_stack import LinkedStack
 
 
 class TestStack(unittest.TestCase):
     """Class that tests the stack implementations."""
 
     def setUp(self) -> None:
-        self._stacks = [ArrayStack()]
+        self._stacks = [ArrayStack(), LinkedStack()]
 
     def test_empty_stack(self) -> None:
         for stack in self._stacks:
