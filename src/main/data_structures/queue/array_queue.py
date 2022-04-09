@@ -20,7 +20,7 @@ class ArrayQueue(Generic[T]):
 
     def is_empty(self) -> bool:
         """Checks if the queue is empty."""
-        return not self._queue
+        return self.size() == 0
 
     def offer(self, elem: T) -> None:
         """Adds an element to the end of the queue."""

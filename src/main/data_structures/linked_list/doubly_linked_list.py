@@ -53,7 +53,7 @@ class DoublyLinkedList(Generic[T]):
 
     def is_empty(self) -> bool:
         """Checks if the linked list is empty."""
-        return not self.size()
+        return self.size() == 0
 
     def add(self, elem: T) -> None:
         """Adds an element to the tail of the linked list in O(1)."""

@@ -21,7 +21,7 @@ class LinkedStack(Generic[T]):
 
     def is_empty(self) -> bool:
         """Check if the stack is empty."""
-        return not self._stack
+        return self.size() == 0
 
     def push(self, elem: T) -> None:
         """Adds an element to the stack."""
