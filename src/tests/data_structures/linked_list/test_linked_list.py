@@ -28,7 +28,7 @@ class TestDoublyLinkedList(unittest.TestCase):
     def test_peek_first_of_empty(self) -> None:
         self.assertRaises(Exception, self._linked_list.peek_first)
 
-    def test_PeekLastOfEmpty(self) -> None:
+    def test_peek_last_of_empty(self) -> None:
         self.assertRaises(Exception, self._linked_list.peek_last)
 
     def test_add_first(self) -> None:
