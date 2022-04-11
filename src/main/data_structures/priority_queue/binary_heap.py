@@ -58,7 +58,7 @@ class BinaryHeap(Generic[T]):
         """Adds an element to the priority queue, O(log(n))."""
         if elem is None: raise ValueError()
 
-        self._head.append(elem)
+        self._heap.append(elem)
 
         index_of_last_elem = self.size() - 1
         self._swim(index_of_last_elem)
@@ -88,18 +88,19 @@ class BinaryHeap(Generic[T]):
         while True:
             left = 2 * k + 1
             right = 2 * k + 2
-            smallest = left
+            smallest = k
 
-            # If right is smaller than left set smallest to be right
-            if right < heap_size and self._less(right, left):
+            if left < heap_size and self._less(left, smallest):
+                smallest = left
+
+            if right < heap_size and self._less(right, smallest):
                 smallest = right
 
-            # Stop if we're out of bounds or we cannot sink anymore
-            if left >= heap_size or self._less(k, smallest):
+            if smallest != k:
+                self._swap(smallest, k)
+                k = smallest
+            else:
                 break
-
-            self._swap(smallest, k)
-            k = smallest
 
     def _swap(self, i: int, j: int) -> None:
         """Swaps two nodes."""
@@ -124,9 +125,9 @@ class BinaryHeap(Generic[T]):
         data = self._heap[i]
         self._swap(i, index_of_last_elem)
 
-        self._heap.pop(index_of_last_elem)
+        self._heap.pop()
 
-        if i == data: return data
+        if i == index_of_last_elem: return data
         elem = self._heap[i]
 
         self._sink(i)
