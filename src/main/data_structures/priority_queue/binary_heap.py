@@ -137,3 +137,24 @@ class BinaryHeap(Generic[T]):
 
     def __str__(self) -> str:
         return str(self._heap)
+
+
+def main() -> None:
+    array = [50, 10, 40, 60, 20]
+    binary_heap = BinaryHeap()
+    binary_heap.heapify(array)
+    print(binary_heap.size())
+    print(binary_heap.is_empty())
+    print(binary_heap.peek())
+    print(binary_heap.contains(30))
+    binary_heap.add(0)
+    binary_heap.add(30)
+    print(binary_heap.peek())
+    binary_heap.poll()
+    print(binary_heap.peek())
+    binary_heap.remove(50)
+    print(binary_heap)
+
+
+if __name__ == '__main__':
+    main()
