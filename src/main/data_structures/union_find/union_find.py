@@ -1,8 +1,8 @@
-"""An implementation of a union find set."""
+"""An implementation of a union find/disjoint set."""
 
 
 class UnionFind:
-    """Class that represents a union find set.
+    """Class that represents a union find/disjoint set.
 
     Attributes:
         _size: The number of elements in the union find.
