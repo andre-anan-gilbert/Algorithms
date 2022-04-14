@@ -175,5 +175,5 @@ class TestUnionFind(unittest.TestCase):
         self.assertEqual(self._union_find.size(), 5)
 
     def test_bad_init(self) -> None:
-        for i in range(-2, 1):
+        for _ in range(-2, 1):
             self.assertRaises(Exception, UnionFind)
