@@ -10,22 +10,27 @@ class FenwickTree:
         _tree: The array containing the range values.
     """
 
-    def __init__(self) -> None:
-        self._n = 0
-        self._tree = None
+    def __init__(self, size: int = None, values: list[int] = None) -> None:
+        """Inits the fenwick tree.
 
-    def create_tree(self, values: list[int]) -> None:
-        """Constructs the fenwick tree with initial values."""
-        if values is None: raise ValueError('Values array cannot be None.')
+        Args:
+            size: Create an empty tree with 'size'.
+            values: Construct a tree with an initial set of values.
+        """
+        if size is not None and values is None:
+            self._n = size
+            self._tree = [0 for _ in range(size + 1)]
+        else:
+            if values is None: raise ValueError('Values array cannot be empty.')
 
-        self._n = len(values)
-        values[0] = 0
+            self._n = len(values)
+            values[0] = 0
 
-        self._tree = copy.deepcopy(values)
+            self._tree = copy.deepcopy(values)
 
-        for i in range(self._n):
-            parent = i + self._lsb(i)
-            if parent < self._n: self._tree[parent] += self._tree[i]
+            for i in range(self._n):
+                parent = i + self._lsb(i)
+                if parent < self._n: self._tree[parent] += self._tree[i]
 
     def _lsb(self, i: int) -> int:
         """Finds the least significant bit."""
@@ -40,24 +45,24 @@ class FenwickTree:
 
         return prefix_sum
 
-    def interval_sum(self, left: int, right: int) -> int:
+    def sum(self, left: int, right: int) -> int:
         """Computes the sum of the interval [left, right], O(log(n))."""
         if right < left: raise ValueError('Make sure right >= left.')
         return self._prefix_sum(right) - self._prefix_sum(left - 1)
 
     def get(self, i: int) -> int:
         """Returns the value at index i."""
-        return self.interval_sum(i, i)
+        return self.sum(i, i)
 
     def add(self, i: int, v: int) -> int:
         """Adds v to index i."""
         while i < self._n:
             self._tree[i] += v
-            i += self._isb(i)
+            i += self._lsb(i)
 
     def set(self, i: int, v: int) -> int:
         """Sets index i to be equal to v."""
-        return self.add(i, v - self.interval_sum(i, i))
+        return self.add(i, v - self.sum(i, i))
 
     def __str__(self) -> str:
         return str(self._tree)
