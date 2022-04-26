@@ -17,18 +17,18 @@ class FenwickTree:
             size: Create an empty tree with 'size'.
             values: Construct a tree with an initial set of values.
         """
-        if size is not None and values is None:
+        if size is not None and not values:
             self._n = size
             self._tree = [0 for _ in range(size + 1)]
         else:
-            if values is None: raise ValueError('Values array cannot be empty.')
+            if not values: raise ValueError('Values array cannot be empty.')
 
             self._n = len(values)
             values[0] = 0
 
             self._tree = copy.deepcopy(values)
 
-            for i in range(self._n):
+            for i in range(1,self._n):
                 parent = i + self._lsb(i)
                 if parent < self._n: self._tree[parent] += self._tree[i]
 
