@@ -5,7 +5,7 @@ from collections import deque
 from main.data_structures.binary_search_tree.binary_search_tree import BinarySearchTree, TreeTraversalOrder
 
 
-class TestTreeNode:
+class TreeNode:
     """Class that represents a tree node."""
 
     def __init__(self, data: int, left, right) -> None:
@@ -16,17 +16,17 @@ class TestTreeNode:
     @staticmethod
     def add(node, data: int):
         if node is None:
-            node = TestTreeNode(data, None, None)
+            node = TreeNode(data, None, None)
         else:
             if data < node.data:
-                node.left = TestTreeNode.add(node.left, data)
+                node.left = TreeNode.add(node.left, data)
             else:
-                node.right = TestTreeNode.add(node.right, data)
+                node.right = TreeNode.add(node.right, data)
 
         return node
 
 
-def pre_order(array: list[int], node: TestTreeNode) -> None:
+def pre_order(array: list[int], node: TreeNode) -> None:
     if node is None: return
 
     array.append(node.data)
@@ -34,7 +34,7 @@ def pre_order(array: list[int], node: TestTreeNode) -> None:
     if node.right is not None: pre_order(array, node.right)
 
 
-def in_order(array: list[int], node: TestTreeNode) -> None:
+def in_order(array: list[int], node: TreeNode) -> None:
     if node is None: return
 
     if node.left is not None: in_order(array, node.left)
@@ -42,7 +42,7 @@ def in_order(array: list[int], node: TestTreeNode) -> None:
     if node.right is not None: in_order(array, node.right)
 
 
-def post_order(array: list[int], node: TestTreeNode) -> None:
+def post_order(array: list[int], node: TreeNode) -> None:
     if node is None: return
 
     if node.left is not None: post_order(array, node.left)
@@ -50,7 +50,7 @@ def post_order(array: list[int], node: TestTreeNode) -> None:
     array.append(node.data)
 
 
-def level_order(array: list[int], node: TestTreeNode) -> None:
+def level_order(array: list[int], node: TreeNode) -> None:
     q = deque()
     if node is not None: q.append(node)
 
@@ -190,7 +190,7 @@ class TestBinarySearchTree(unittest.TestCase):
 
         # Construct Binary Tree and test tree
         for value in array:
-            test_tree = TestTreeNode.add(test_tree, value)
+            test_tree = TreeNode.add(test_tree, value)
             tree.add(value)
 
         # Generate the expected output for the particular traversal
