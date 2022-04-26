@@ -1,5 +1,5 @@
 """An implementation of a binary search tree."""
-from typing import Generator, Generic, Iterator, TypeVar
+from typing import Generator, Generic, TypeVar
 from collections import deque
 from enum import Enum, auto
 
@@ -41,12 +41,15 @@ class BinarySearchTree(Generic[T]):
             self.right = right
 
     def size(self) -> int:
+        """Return the size of the tree."""
         return self._node_count
 
     def is_empty(self) -> bool:
+        """Checks if the tree is empty."""
         return self.size() == 0
 
     def add(self, elem: T) -> bool:
+        """Adds an element to the tree."""
         if self.contains(elem):
             return False
         else:
@@ -55,6 +58,7 @@ class BinarySearchTree(Generic[T]):
             return True
 
     def _add(self, node: _Node, elem: T) -> _Node:
+        """Adds a node to the tree."""
         if node is None:
             node = self._Node(elem, None, None)
         else:
@@ -66,6 +70,7 @@ class BinarySearchTree(Generic[T]):
         return node
 
     def remove(self, elem: T) -> bool:
+        """Removes a node from the tree."""
         if self.contains(elem):
             self._root = self._remove(self._root, elem)
             self._node_count -= 1
@@ -74,6 +79,7 @@ class BinarySearchTree(Generic[T]):
         return False
 
     def _remove(self, node: _Node, elem: T) -> bool:
+        """Removes a node from the tree."""
         if node is None: return
 
         if elem == node.data:
@@ -96,15 +102,18 @@ class BinarySearchTree(Generic[T]):
         return node
 
     def _find_min(self, node: _Node) -> _Node:
+        """Returns the smallest node in the right subtree."""
         while node.left is not None:
             node = node.left
 
         return node
 
     def contains(self, elem: T) -> bool:
+        """Checks if the tree contains the element."""
         return self._contains(self._root, elem)
 
     def _contains(self, node: _Node, elem: T) -> bool:
+        """Checks if the node with the element exists."""
         if node is None: return False
         if elem == node.data: return True
 
@@ -118,20 +127,23 @@ class BinarySearchTree(Generic[T]):
             return True
 
     def height(self) -> int:
+        """Returns the height of the tree."""
         return self._height(self._root)
 
     def _height(self, node: _Node) -> int:
+        """Computes the height of the tree."""
         if node is None: return 0
         return max(self._height(node.left), self._height(node.right)) + 1
 
-    def traverse(self, order: TreeTraversalOrder) -> Iterator:
-        if order is TreeTraversalOrder.PRE_ORDER:
+    def traverse(self, order: TreeTraversalOrder) -> Generator:
+        """Returns a generator for a given tree traversal order."""
+        if order == TreeTraversalOrder.PRE_ORDER:
             return self._pre_order_traversal()
-        elif order is TreeTraversalOrder.IN_ORDER:
+        elif order == TreeTraversalOrder.IN_ORDER:
             return self._in_order_traversal()
-        elif order is TreeTraversalOrder.POST_ORDER:
+        elif order == TreeTraversalOrder.POST_ORDER:
             return self._post_order_travesal()
-        elif order is TreeTraversalOrder.LEVEL_ORDER:
+        elif order == TreeTraversalOrder.LEVEL_ORDER:
             return self._level_order_traversal()
         else:
             return
@@ -218,6 +230,7 @@ class BinarySearchTree(Generic[T]):
                 raise RuntimeError()
 
             node = queue.popleft()
+
             if node.left is not None:
                 queue.append(node.left)
             if node.right is not None:
