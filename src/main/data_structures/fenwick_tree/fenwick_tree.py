@@ -1,6 +1,5 @@
 """An implementation of a fenwick tree."""
 import copy
-import random
 
 
 class FenwickTree:
