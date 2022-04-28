@@ -103,18 +103,18 @@ class TestFenwickTree(unittest.TestCase):
 
                 self.do_random_range_query(rand_list, fenwick_tree)
 
-    # def test_reusebility(self) -> None:
-    #     size = 1000
-    #     fenwick_tree = FenwickTree(size)
-    #     array = [0 for _ in range(size + 1)]
+    def test_reusebility(self) -> None:
+        size = 1000
+        fenwick_tree = FenwickTree(size)
+        array = [0 for _ in range(size + 1)]
 
-    #     for _ in range(self._loops):
-    #         for i in range(1, size + 1):
-    #             val = self.random_value()
-    #             fenwick_tree.set(i, val)
-    #             array[i] = val
+        for _ in range(self._loops):
+            for i in range(1, size + 1):
+                val = self.random_value()
+                fenwick_tree.set(i, val)
+                array[i] = val
 
-    #         self.do_random_range_query(array, fenwick_tree)
+            self.do_random_range_query(array, fenwick_tree)
 
     def low_bound(self, n: int) -> int:
         return 1 + int(random.random() * n)

@@ -1,5 +1,6 @@
 """An implementation of a fenwick tree."""
 import copy
+import random
 
 
 class FenwickTree:
@@ -17,8 +18,8 @@ class FenwickTree:
             size: Create an empty tree with 'size'.
             values: Construct a tree with an initial set of values.
         """
-        if size is not None and not values:
-            self._n = size
+        if size is not None and values is None:
+            self._n = size + 1
             self._tree = [0 for _ in range(size + 1)]
         else:
             if not values: raise ValueError('Values array cannot be empty.')
@@ -28,7 +29,7 @@ class FenwickTree:
 
             self._tree = copy.deepcopy(values)
 
-            for i in range(1,self._n):
+            for i in range(1, self._n):
                 parent = i + self._lsb(i)
                 if parent < self._n: self._tree[parent] += self._tree[i]
 
