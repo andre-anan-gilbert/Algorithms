@@ -4,7 +4,7 @@
 class TreeSum:
     """Class that implements the tree sum algorithm."""
 
-    class _TreeNode:
+    class TreeNode:
         """Class that represents a tree node.
 
         Attributes:
@@ -27,7 +27,7 @@ class TreeSum:
                 self.children.append(node)
 
     @staticmethod
-    def tree_sum(node: _TreeNode) -> int:
+    def tree_sum(node: TreeNode) -> int:
         if node is None: return 0
 
         total = 0
@@ -38,27 +38,27 @@ class TreeSum:
         return total
 
     @staticmethod
-    def make_tree() -> _TreeNode:
-        root = TreeSum._TreeNode(5)
+    def make_tree() -> TreeNode:
+        root = TreeSum.TreeNode(5)
 
-        node4 = TreeSum._TreeNode(4)
-        node3 = TreeSum._TreeNode(3)
+        node4 = TreeSum.TreeNode(4)
+        node3 = TreeSum.TreeNode(3)
         root.add_child(node4, node3)
 
-        node1 = TreeSum._TreeNode(1)
-        nodem6 = TreeSum._TreeNode(-6)
+        node1 = TreeSum.TreeNode(1)
+        nodem6 = TreeSum.TreeNode(-6)
         node4.add_child(node1, nodem6)
 
-        node0 = TreeSum._TreeNode(0)
-        node7 = TreeSum._TreeNode(7)
-        nodem4 = TreeSum._TreeNode(-4)
+        node0 = TreeSum.TreeNode(0)
+        node7 = TreeSum.TreeNode(7)
+        nodem4 = TreeSum.TreeNode(-4)
         nodem4.add_child(node0, node7, nodem4)
 
-        node2 = TreeSum._TreeNode(2)
-        node9 = TreeSum._TreeNode(9)
+        node2 = TreeSum.TreeNode(2)
+        node9 = TreeSum.TreeNode(9)
         node1.add_child(node2, node9)
 
-        node8 = TreeSum._TreeNode(8)
+        node8 = TreeSum.TreeNode(8)
         node7.add_child(node8)
 
         return root
