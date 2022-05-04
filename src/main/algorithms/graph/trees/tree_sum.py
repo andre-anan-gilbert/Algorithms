@@ -16,12 +16,6 @@ class TreeSum:
             self.value = value
             self.children = []
 
-        def get_value(self) -> int:
-            return self.value
-
-        def get_children(self) -> list:
-            return self.children
-
         def add_child(self, *nodes) -> None:
             for node in nodes:
                 self.children.append(node)
@@ -31,10 +25,10 @@ class TreeSum:
         if node is None: return 0
 
         total = 0
-        for child in node.get_children():
+        for child in node.children:
             total += TreeSum.tree_sum(child)
 
-        total += node.get_value()
+        total += node.value
         return total
 
     @staticmethod
