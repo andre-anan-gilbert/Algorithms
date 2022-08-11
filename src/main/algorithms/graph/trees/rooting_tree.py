@@ -9,7 +9,7 @@ class RootingTree:
         """Class that represents a tree node.
 
         Attributes:
-            root_id: The value of the node.
+            id: The value of the node.
             parent: The parent of the node.
             children: The children of the node.
         """

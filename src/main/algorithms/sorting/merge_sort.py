@@ -27,10 +27,8 @@ class MergeSort:
         i = 0
         j = 0
         k = 0
-        size_left = len(left)
-        size_right = len(right)
 
-        while i < size_left and j < size_right:
+        while i < len(left) and j < len(right):
             if left[i] <= right[j]:
                 array[k] = left[i]
                 i += 1
@@ -40,12 +38,12 @@ class MergeSort:
 
             k += 1
 
-        while i < size_left:
+        while i < len(left):
             array[k] = left[i]
             i += 1
             k += 1
 
-        while j < size_right:
+        while j < len(right):
             array[k] = right[j]
             j += 1
             k += 1
