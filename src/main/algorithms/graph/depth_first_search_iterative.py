@@ -33,7 +33,6 @@ class DepthFirstSearchIterative:
         count = 0
         visited = [False for _ in range(n)]
         stack = []
-
         stack.append(start)
         visited[start] = True
 
@@ -41,7 +40,6 @@ class DepthFirstSearchIterative:
             node = stack.pop()
             count += 1
             edges = graph.get(node)
-
             if edges is not None:
                 for edge in edges:
                     if not visited[edge.to]:

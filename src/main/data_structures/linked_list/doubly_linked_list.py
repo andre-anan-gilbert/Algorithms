@@ -43,7 +43,6 @@ class DoublyLinkedList(Generic[T]):
             trav.prev = trav.next = None
             trav.data = None
             trav = next_node
-
         self._head = self._tail = trav = None
         self._size = 0
 
@@ -66,7 +65,6 @@ class DoublyLinkedList(Generic[T]):
         else:
             self._tail.next = self._Node(elem, self._tail, None)
             self._tail = self._tail.next
-
         self._size += 1
 
     def add_first(self, elem: T) -> None:
@@ -76,7 +74,6 @@ class DoublyLinkedList(Generic[T]):
         else:
             self._head.prev = self._Node(elem, None, self._head)
             self._head = self._head.prev
-
         self._size += 1
 
     def add_at(self, index: int, elem: T) -> None:
@@ -98,7 +95,6 @@ class DoublyLinkedList(Generic[T]):
         new_node = self._Node(elem, temp, temp.next)
         temp.next.prev = new_node
         temp.next = new_node
-
         self._size += 1
 
     def peek_first(self) -> None:
@@ -123,7 +119,6 @@ class DoublyLinkedList(Generic[T]):
             self._tail = None
         else:
             self._head.prev = None
-
         return data
 
     def remove_last(self) -> T:
@@ -138,7 +133,6 @@ class DoublyLinkedList(Generic[T]):
             self._head = None
         else:
             self._tail.next = None
-
         return data
 
     def _remove(self, node: _Node) -> T:
@@ -152,9 +146,7 @@ class DoublyLinkedList(Generic[T]):
         data = node.data
         node.data = node.next = node.prev = None
         node = None
-
         self._size -= 1
-
         return data
 
     def remove_at(self, index: int) -> T:
@@ -167,14 +159,12 @@ class DoublyLinkedList(Generic[T]):
             while i != index:
                 i += 1
                 trav = trav.next
-
         else:
             i = self._size - 1
             trav = self._tail
             while i != index:
                 i -= 1
                 trav = trav.prev
-
         return self._remove(trav)
 
     def remove(self, obj: object) -> bool:
@@ -241,7 +231,6 @@ class DoublyLinkedList(Generic[T]):
 
         data = self._iter.data
         self._iter = self._iter.next
-
         return data
 
     def __str__(self) -> str:
@@ -251,9 +240,7 @@ class DoublyLinkedList(Generic[T]):
             linked_list += str(trav.data)
             if trav.next is not None:
                 linked_list += ', '
-
             trav = trav.next
-
         linked_list += ']'
         return linked_list
 

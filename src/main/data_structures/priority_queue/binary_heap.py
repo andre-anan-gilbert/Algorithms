@@ -51,7 +51,6 @@ class BinaryHeap(Generic[T]):
         for i in range(self.size()):
             if self._heap[i] == elem:
                 return True
-
         return False
 
     def add(self, elem: T) -> None:
@@ -59,7 +58,6 @@ class BinaryHeap(Generic[T]):
         if elem is None: raise ValueError()
 
         self._heap.append(elem)
-
         index_of_last_elem = self.size() - 1
         self._swim(index_of_last_elem)
 
@@ -78,7 +76,6 @@ class BinaryHeap(Generic[T]):
         while k > 0 and self._less(k, parent):
             self._swap(k, parent)
             k = parent
-
             parent = (k - 1) // 2
 
     def _sink(self, k: int) -> None:
@@ -89,13 +86,10 @@ class BinaryHeap(Generic[T]):
             left = 2 * k + 1
             right = 2 * k + 2
             smallest = k
-
             if left < heap_size and self._less(left, smallest):
                 smallest = left
-
             if right < heap_size and self._less(right, smallest):
                 smallest = right
-
             if smallest != k:
                 self._swap(smallest, k)
                 k = smallest
@@ -114,7 +108,6 @@ class BinaryHeap(Generic[T]):
             if self._heap[i] == elem:
                 self.remove_at(i)
                 return True
-
         return False
 
     def remove_at(self, i: int) -> T:

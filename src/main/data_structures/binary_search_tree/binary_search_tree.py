@@ -1,7 +1,7 @@
 """An implementation of a binary search tree."""
-from typing import Generator, Generic, TypeVar
 from collections import deque
 from enum import Enum, auto
+from typing import Generator, Generic, TypeVar
 
 
 class TreeTraversalOrder(Enum):
@@ -66,7 +66,6 @@ class BinarySearchTree(Generic[T]):
                 node.left = self._add(node.left, elem)
             else:
                 node.right = self._add(node.right, elem)
-
         return node
 
     def remove(self, elem: T) -> bool:
@@ -75,7 +74,6 @@ class BinarySearchTree(Generic[T]):
             self._root = self._remove(self._root, elem)
             self._node_count -= 1
             return True
-
         return False
 
     def _remove(self, node: _Node, elem: T) -> bool:
@@ -93,19 +91,16 @@ class BinarySearchTree(Generic[T]):
                 node.right = self._remove(node.right, tmp.data)
 
         cmp = elem < node.data
-
         if cmp:
             node.left = self._remove(node.left, elem)
         else:
             node.right = self._remove(node.right, elem)
-
         return node
 
     def _find_min(self, node: _Node) -> _Node:
         """Returns the smallest node in the right subtree."""
         while node.left is not None:
             node = node.left
-
         return node
 
     def contains(self, elem: T) -> bool:
@@ -118,7 +113,6 @@ class BinarySearchTree(Generic[T]):
         if elem == node.data: return True
 
         cmp = elem < node.data
-
         if cmp:
             return self._contains(node.left, elem)
         elif not cmp:

@@ -45,10 +45,9 @@ class BreadthFirstSearchRecursive:
         depth = 0
 
         while True:
-            if len(queue) == 1 and queue[0] == BreadthFirstSearchRecursive.DEPTH_TOKEN: break
-
+            if len(queue) == 1 and queue[0] == BreadthFirstSearchRecursive.DEPTH_TOKEN:
+                break
             depth += BreadthFirstSearchRecursive._bfs(visited, queue, graph)
-
         return depth
 
     @staticmethod

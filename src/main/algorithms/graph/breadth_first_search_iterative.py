@@ -50,14 +50,12 @@ class BreadthFirstSearchIterative:
         self._prev = [None for _ in range(self._n)]
         visited = [False for _ in range(self._n)]
         queue = deque()
-
         queue.append(start)
         visited[start] = True
 
         while queue:
             node = queue.popleft()
             edges = self._graph[node]
-
             for edge in edges:
                 if not visited[edge.to]:
                     visited[edge.to] = True
