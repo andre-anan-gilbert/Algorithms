@@ -38,10 +38,8 @@ class TreeIsomorphism:
         for center in centers2:
             rooted_tree2 = TreeIsomorphism._root_tree(tree2, center)
             tree2_encoding = TreeIsomorphism._encode(rooted_tree2)
-
             if tree1_encoding == tree2_encoding:
                 return True
-
         return False
 
     @staticmethod

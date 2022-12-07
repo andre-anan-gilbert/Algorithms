@@ -10,7 +10,6 @@ class BucketSort:
         min_value = min(array)
         max_value = max(array)
         if min_value == max_value: return
-
         self._bucket_sort(array, min_value, max_value)
 
     def _bucket_sort(self, array: list[int], min_value: int, max_value: int) -> None:
@@ -18,7 +17,6 @@ class BucketSort:
         m = max_value - min_value + 1
         number_of_buckets = m // size + 1
         buckets = [[] for _ in range(number_of_buckets)]
-
         for i in range(size):
             bucket_index = (array[i] - min_value) // m
             buckets[bucket_index].append(array[i])

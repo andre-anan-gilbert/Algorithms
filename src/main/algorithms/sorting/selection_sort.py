@@ -10,13 +10,11 @@ class SelectionSort:
 
     def _selection_sort(self, array: list[int]) -> None:
         size = len(array)
-
         for i in range(size):
             swap_index = i
             for j in range(i + 1, size):
                 if array[j] < array[swap_index]:
                     swap_index = j
-
             self._swap(array, i, swap_index)
 
     def _swap(self, array: list[int], i: int, j: int) -> None:

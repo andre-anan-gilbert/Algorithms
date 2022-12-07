@@ -43,7 +43,6 @@ class BreadthFirstSearchRecursive:
                 if not visited[neighbour]: queue.append(neighbour)
 
         depth = 0
-
         while True:
             if len(queue) == 1 and queue[0] == BreadthFirstSearchRecursive.DEPTH_TOKEN:
                 break

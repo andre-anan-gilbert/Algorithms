@@ -45,7 +45,6 @@ class DepthFirstSearchIterative:
                     if not visited[edge.to]:
                         stack.append(edge.to)
                         visited[edge.to] = True
-
         return count
 
     @staticmethod
@@ -54,7 +53,6 @@ class DepthFirstSearchIterative:
         if array is None:
             array = []
             graph[fr] = array
-
         array.append(DepthFirstSearchIterative._Edge(fr, to, cost))
 
 

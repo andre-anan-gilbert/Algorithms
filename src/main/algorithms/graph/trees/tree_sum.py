@@ -27,7 +27,6 @@ class TreeSum:
         total = 0
         for child in node.children:
             total += TreeSum.tree_sum(child)
-
         total += node.value
         return total
 
