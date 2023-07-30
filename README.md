@@ -1,4 +1,4 @@
-# Data Structures and Algorithms
+# Algorithms
 Algorithms and data structures are fundamental to efficient code and good software design. Creating and designing excellent algorithms is required for being an exemplary programmer. This repository presents the Python code implementation of the provided algorithms and data structures from William Fiset at: https://github.com/williamfiset/Algorithms.
 
 ## Running an algorithm implementation
